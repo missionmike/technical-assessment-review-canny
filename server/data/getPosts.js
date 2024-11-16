@@ -20,6 +20,9 @@ export default (page, sort) => {
 
   return {
     pages: Math.ceil(Posts.length / PageSize),
+    // This is highly inefficient. We're fetching ALL posts, sorting them,
+    // then only returning a segment of them. Ideally, this segmentation and
+    // sorting would be handled by the database engine.
     posts: posts.slice(start, end),
   };
 };
