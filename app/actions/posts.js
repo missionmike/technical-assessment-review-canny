@@ -1,6 +1,6 @@
-import { get } from "../utils/AJAX";
+import { get } from '../utils/AJAX';
 
-export const PostsError = "canny/posts/error";
+export const PostsError = 'canny/posts/error';
 function postError(error) {
   return {
     error,
@@ -9,7 +9,7 @@ function postError(error) {
   };
 }
 
-export const PostsLoaded = "canny/posts/loaded";
+export const PostsLoaded = 'canny/posts/loaded';
 function postsLoaded(posts, pages) {
   return {
     pages,
@@ -21,7 +21,7 @@ function postsLoaded(posts, pages) {
 
 export function fetchPosts(params) {
   return async (dispatch, getState) => {
-    const { error, pages, posts } = await get("/api/posts/get", params);
+    const { error, pages, posts } = await get('/api/posts/get', params);
     if (error) {
       return dispatch(postError(error));
     }

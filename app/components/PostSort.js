@@ -1,22 +1,22 @@
-import "./css/_PostSort.css";
+import './css/_PostSort.css';
 
-import React from "react";
-import { changeSort } from "../actions/sort";
-import { connect } from "react-redux";
-import { fetchPosts } from "../actions/posts";
+import React from 'react';
+import { changeSort } from '../actions/sort';
+import { connect } from 'react-redux';
+import { fetchPosts } from '../actions/posts';
 
 const Options = [
   {
-    name: "old",
-    render: "Old",
+    name: 'old',
+    render: 'Old',
   },
   {
-    name: "top",
-    render: "Top",
+    name: 'top',
+    render: 'Top',
   },
   {
-    name: "new",
-    render: "New",
+    name: 'new',
+    render: 'New',
   },
 ];
 
@@ -37,7 +37,7 @@ const Selector = ({ hidden, onSelect, sort }) => {
   };
 
   const sorts = Options.map((option) => {
-    const className = "option" + (option.name === sort.sort ? " selected" : "");
+    const className = 'option' + (option.name === sort.sort ? ' selected' : '');
     return (
       <div
         className={className}

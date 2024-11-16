@@ -1,4 +1,4 @@
-import { PostsError, PostsLoaded } from "../actions/posts";
+import { PostsError, PostsLoaded } from '../actions/posts';
 
 const InitialState = {
   error: null,
