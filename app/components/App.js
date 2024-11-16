@@ -1,10 +1,9 @@
-import React from 'react';
+import './css/_App.css';
 
 import Header from './Header';
 import PostList from './PostList';
 import PostSort from './PostSort';
-
-import './css/_App.css';
+import React from 'react';
 
 const App = () => (
   <div className="app">
