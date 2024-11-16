@@ -1,8 +1,8 @@
-import Request from "./Request";
-import authenticateUser from "../utils/authenticateUser";
-import http from "http";
-import url from "url";
-import validateInput from "../utils/validateInput";
+import Request from './Request';
+import authenticateUser from '../utils/authenticateUser';
+import http from 'http';
+import url from 'url';
+import validateInput from '../utils/validateInput';
 
 class HTTPServer {
   constructor(config) {
@@ -38,7 +38,7 @@ class HTTPServer {
     if (error) {
       const timestamp = `[${new Date().toISOString()}]`;
       console.error(timestamp, error);
-      request.fail("invalid input");
+      request.fail('invalid input');
       return;
     }
 
