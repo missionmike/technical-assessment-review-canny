@@ -142,10 +142,7 @@ _"Thank you for catching this! It looks like our sorting algorithm had a bug.
 This has been fixed, please let me know if all looks good on your end. Thank
 you!"_
 
-### **Customer 4:** When I page through posts, although the posts are changing, the
-
-vote count in the top left corner does not match the total count of votes of the
-displayed posts.
+### **Customer 4:** When I page through posts, although the posts are changing, the vote count in the top left corner does not match the total count of votes of the displayed posts.
 
 #### The Diagnosis
 
