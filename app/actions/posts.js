@@ -1,6 +1,6 @@
-import { get } from '../utils/AJAX';
+import { get } from "../utils/AJAX";
 
-export const PostsError = 'canny/posts/error';
+export const PostsError = "canny/posts/error";
 function postError(error) {
   return {
     error,
@@ -9,7 +9,7 @@ function postError(error) {
   };
 }
 
-export const PostsLoaded = 'canny/posts/loaded';
+export const PostsLoaded = "canny/posts/loaded";
 function postsLoaded(posts, pages) {
   return {
     pages,
@@ -19,16 +19,9 @@ function postsLoaded(posts, pages) {
   };
 }
 
-export const RecountVotes = 'canny/posts/recount';
-export function recountVotes(posts, pages) {
-  return {
-    type: RecountVotes,
-  };
-}
-
 export function fetchPosts(params) {
   return async (dispatch, getState) => {
-    const { error, pages, posts } = await get('/api/posts/get', params);
+    const { error, pages, posts } = await get("/api/posts/get", params);
     if (error) {
       return dispatch(postError(error));
     }
@@ -38,7 +31,6 @@ export function fetchPosts(params) {
 
 export function loadPosts() {
   return async (dispatch, getState) => {
-    await dispatch(fetchPosts());
-    return dispatch(recountVotes());
+    return await dispatch(fetchPosts());
   };
 }

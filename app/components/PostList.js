@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import "./css/_PostList.css";
 
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import { fetchPosts, loadPosts } from "../actions/posts";
 
-import { fetchPosts, loadPosts, recountVotes } from '../actions/posts';
-
-import './css/_PostList.css';
+import { connect } from "react-redux";
 
 const PostList = ({ error, fetchPosts, loadPosts, pages, posts }) => {
   useEffect(() => {
@@ -27,7 +26,7 @@ const PostList = ({ error, fetchPosts, loadPosts, pages, posts }) => {
     <div className="postList">
       <div className="posts">
         {posts.map((post, i) => {
-          const date = new Date(post.created).toLocaleDateString('en-US');
+          const date = new Date(post.created).toLocaleDateString("en-US");
           return (
             <div className="post" key={i}>
               <div className="votes">{post.votes}</div>
@@ -64,8 +63,7 @@ export default connect(
   }),
   (dispatch) => ({
     fetchPosts: (params) => {
-      dispatch(fetchPosts(params));
-      return dispatch(recountVotes());
+      return dispatch(fetchPosts(params));
     },
     loadPosts: () => dispatch(loadPosts()),
   })
