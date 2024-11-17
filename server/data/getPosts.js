@@ -1,5 +1,5 @@
-import Posts from './posts';
 import sortBy from '../utils/sortBy';
+import Posts from './posts';
 
 const PageSize = 10;
 

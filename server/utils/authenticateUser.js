@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+
 import validateInput from './validateInput';
 
 const SingleSignOnKey = 'SingleSignOnKey';
