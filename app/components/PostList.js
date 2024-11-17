@@ -1,9 +1,10 @@
-import './css/_PostList.css';
-
 import React, { useEffect } from 'react';
-import { fetchPosts, loadPosts } from '../actions/posts';
 
 import { connect } from 'react-redux';
+
+import { fetchPosts, loadPosts } from '../actions/posts';
+
+import './css/_PostList.css';
 
 const PostList = ({ error, fetchPosts, loadPosts, pages, posts }) => {
   useEffect(() => {
