@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
-import { fetchPosts, loadPosts, recountVotes } from '../actions/posts';
+import { fetchPosts, loadPosts } from '../actions/posts';
 
 import './css/_PostList.css';
 
@@ -64,8 +64,7 @@ export default connect(
   }),
   (dispatch) => ({
     fetchPosts: (params) => {
-      dispatch(fetchPosts(params));
-      return dispatch(recountVotes());
+      return dispatch(fetchPosts(params));
     },
     loadPosts: () => dispatch(loadPosts()),
   })

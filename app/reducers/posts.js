@@ -1,4 +1,4 @@
-import { PostsError, PostsLoaded, RecountVotes } from '../actions/posts';
+import { PostsError, PostsLoaded } from '../actions/posts';
 
 const InitialState = {
   error: null,
@@ -22,16 +22,9 @@ export default function posts(state = InitialState, action) {
         error: null,
         pages: action.pages,
         posts: action.posts,
-      };
-    }
-
-    case RecountVotes: {
-      const votes = state.posts.reduce((prev, post) => {
-        return prev + post.votes;
-      }, 0);
-      return {
-        ...state,
-        votes,
+        votes: action.posts.reduce((prev, post) => {
+          return prev + post.votes;
+        }, 0),
       };
     }
 

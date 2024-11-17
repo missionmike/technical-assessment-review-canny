@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import { fetchPosts, recountVotes } from '../actions/posts';
+import { fetchPosts } from '../actions/posts';
 import { changeSort } from '../actions/sort';
 
 import './css/_PostSort.css';
@@ -22,7 +22,7 @@ const Options = [
   },
 ];
 
-const Selector = ({ hidden, onSelect, selected }) => {
+const Selector = ({ hidden, onSelect, sort }) => {
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   const onOpenMenu = () => {
@@ -39,16 +39,20 @@ const Selector = ({ hidden, onSelect, selected }) => {
   };
 
   const sorts = Options.map((option) => {
-    const className = 'option' + (option.name === selected ? ' selected' : '');
+    const className = 'option' + (option.name === sort.sort ? ' selected' : '');
     return (
-      <div className={className} key={option.name} onClick={() => onClickOption(option.name)}>
+      <div
+        className={className}
+        key={option.name}
+        onClick={() => onClickOption(option.name)}
+      >
         <div className="dot" />
         {option.render}
       </div>
     );
   });
 
-  const option = Options.find((option) => option.name === selected);
+  const option = Options.find((option) => option.name === sort.sort);
   return (
     <div className="selector" onClick={onOpenMenu}>
       <div className="selectedName">{option.render}</div>
@@ -69,7 +73,7 @@ const PostSort = ({ sort, changeSort }) => {
   return (
     <div className="postSort">
       <div className="text">Showing</div>
-      <Selector onSelect={changeSort} selected={sort.sort} />
+      <Selector onSelect={changeSort} sort={sort} />
       <div className="text">posts</div>
     </div>
   );
@@ -80,8 +84,7 @@ export default connect(
   (dispatch) => ({
     changeSort: (sort) => {
       dispatch(changeSort(sort));
-      dispatch(fetchPosts({ sort }));
-      return dispatch(recountVotes());
+      return dispatch(fetchPosts({ sort }));
     },
   })
 )(PostSort);

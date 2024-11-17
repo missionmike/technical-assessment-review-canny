@@ -29,7 +29,7 @@ class HTTPServer {
       await authenticateUser(request, queryData);
     } catch (error) {
       request.setData(queryData);
-      request.error('unauthorized');
+      request.error(error.message);
       return;
     }
 

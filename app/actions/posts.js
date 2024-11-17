@@ -19,13 +19,6 @@ function postsLoaded(posts, pages) {
   };
 }
 
-export const RecountVotes = 'canny/posts/recount';
-export function recountVotes(posts, pages) {
-  return {
-    type: RecountVotes,
-  };
-}
-
 export function fetchPosts(params) {
   return async (dispatch, getState) => {
     const { error, pages, posts } = await get('/api/posts/get', params);
@@ -38,7 +31,6 @@ export function fetchPosts(params) {
 
 export function loadPosts() {
   return async (dispatch, getState) => {
-    await dispatch(fetchPosts());
-    return dispatch(recountVotes());
+    return await dispatch(fetchPosts());
   };
 }

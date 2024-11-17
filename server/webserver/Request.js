@@ -9,7 +9,7 @@ class Request {
 
   error(error) {
     const data = JSON.stringify({
-      error: 'server error',
+      error,
     });
     this._respond(data, 500);
   }
