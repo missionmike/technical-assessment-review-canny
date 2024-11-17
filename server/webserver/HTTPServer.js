@@ -1,8 +1,10 @@
-import Request from './Request';
-import authenticateUser from '../utils/authenticateUser';
 import http from 'http';
+
 import url from 'url';
+
+import authenticateUser from '../utils/authenticateUser';
 import validateInput from '../utils/validateInput';
+import Request from './Request';
 
 class HTTPServer {
   constructor(config) {
