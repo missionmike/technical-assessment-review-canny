@@ -1,9 +1,11 @@
-import './css/_PostSort.css';
-
 import React from 'react';
-import { changeSort } from '../actions/sort';
+
 import { connect } from 'react-redux';
+
 import { fetchPosts } from '../actions/posts';
+import { changeSort } from '../actions/sort';
+
+import './css/_PostSort.css';
 
 const Options = [
   {
