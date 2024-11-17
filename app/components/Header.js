@@ -1,8 +1,10 @@
-import './css/_Header.css';
+import React from 'react';
+
+import { connect } from 'react-redux';
 
 import Logo from '../img/logo.svg';
-import React from 'react';
-import { connect } from 'react-redux';
+
+import './css/_Header.css';
 
 const Header = ({ votes }) => {
   return (
